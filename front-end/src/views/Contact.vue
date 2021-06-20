@@ -12,28 +12,31 @@
 </div>
 </template>
 
+
 <style>
-  .contact {
-    margin: auto;
-    width: 75%;
-    display: flex;
-    justify-content: space-between;
-  }
+.contact {
+  margin: auto;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
 
-  .personal-container {
-    border: solid red 1px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
+.personal-container {
+  width: 100%;
+  height: 400px;
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+}
 
-  .portrait {
-    max-height: 10%;
-    width: auto;
-  }
+.portrait {
+  max-height: 100%;
+  width: auto;
+  margin-right: 50px;
+}
 
-  .bio {
-    text-align: left;
-  }
+.bio {
+  text-align: left;
+}
 
 </style>

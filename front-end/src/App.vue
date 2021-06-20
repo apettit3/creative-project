@@ -2,14 +2,14 @@
   <div id="app">
     <div id="header">
       <nav v-if="windowWidth < 600" class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #FFFFFF;">
-        <router-link class="navbar-brand" to="/">Andrew Pettit</router-link>
+        <router-link class="navbar-brand" to="/">Andrew Pettit: 3D Artist</router-link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="navbar-nav">
-            <router-link class="nav-item nav-link" to="/">Portfolio</router-link>
-            <router-link class="nav-item nav-link" to="/gallery">Gallery</router-link>
+            <router-link class="nav-item nav-link" to="/">Demo Reel</router-link>
+            <router-link class="nav-item nav-link" to="/gallery">Portfolio</router-link>
             <router-link class="nav-item nav-link" to="/contact">Contact</router-link>
             <router-link class="nav-item nav-link" to="/shop">Shop</router-link>
           </div>
@@ -17,11 +17,11 @@
       </nav>
       <div v-else class="header">
         <div class="header-title">
-          <h1>Andrew Pettit</h1>
+          <h1>Andrew Pettit: 3D Artist</h1>
         </div>
         <div class="header-links">
-          <router-link class="header-link" to="/">Portfolio</router-link>
-          <router-link class="header-link" to="/gallery">Gallery</router-link>
+          <router-link class="header-link" to="/">Demo Reel</router-link>
+          <router-link class="header-link" to="/gallery">Portfolio</router-link>
           <router-link class="header-link" to="/contact">Contact</router-link>
           <router-link class="header-link" to="/shop">Shop</router-link>
         </div>
@@ -29,14 +29,18 @@
     </div>
     <div v-if="user" class="user-account">
       <p class="user-info">{{ user.firstName }}  {{ user.lastName }}</p>
-      <a class="user-info" @click="logout"><img src="@/assets/logout_sphere.svg" /></a>
+      <a class="user-info" @click="logout"><img src="@/assets/icons/logout_sphere.svg" /></a>
+    </div>
+    <div v-else class="user-account">
+      <p class="user-info">Login</p>
+      <router-link to="/shop"><img src="@/assets/icons/login_sphere.svg" /></router-link>
     </div>
     <router-view/>
   <div class="footer">
-    <router-link class="footer-link copyright" to="/">© 2021</router-link>
+    <router-link class="footer-link copyright" to="/">© 2021, Andrew Pettit Animation</router-link>
     <div class="footer-link media-container">
-      <a class="media-link" href="https://vimeo.com/512375509"><img src="@/assets/vimeo_circle.svg"/></a>
-      <a class="media-link" href="https://www.instagram.com/androodlespettit/"><img src="@/assets/instagram_circle.svg"/></a>
+      <a class="media-link" href="https://vimeo.com/512375509"><img src="@/assets/icons/vimeo_circle.svg"/></a>
+      <a class="media-link" href="https://www.instagram.com/androodlespettit/"><img src="@/assets/icons/instagram_circle.svg"/></a>
     </div>
     <div class="footer-link github">
       <a class="footer-link github-info" href="https://github.com/apettit3/creative-project.git">GitHub</a>
@@ -117,18 +121,19 @@ export default {
 }
 
 .user-account {
-  width: 100%;
+  width: 70%;
+  margin: 0 auto;
   display: flex;
   justify-content: right;
 }
 
 .user-info {
-  margin: 0px 20px;
+  margin: 0px 5px;
 }
 
 .footer {
   margin-top: 75px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;

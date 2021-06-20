@@ -1,14 +1,14 @@
-import vueVimeoPlayer from 'vue-vimeo-player'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Embed from 'v-video-embed'
 
 import Home from '../views/Home.vue'
 import Shop from "../views/Shop.vue"
 import Gallery from "../views/Gallery.vue"
 import Contact from "../views/Contact.vue"
 
-Vue.use(vueVimeoPlayer)
-Vue.use(VueRouter)
+Vue.use(VueRouter);
+Vue.use(Embed);
 
 const routes = [
   {
