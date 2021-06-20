@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="navbar-nav">
             <router-link class="nav-item nav-link" to="/">Demo Reel</router-link>
-            <router-link class="nav-item nav-link" to="/gallery">Portfolio</router-link>
+            <router-link class="nav-item nav-link" to="/portfolio">Portfolio</router-link>
             <router-link class="nav-item nav-link" to="/contact">Contact</router-link>
             <router-link class="nav-item nav-link" to="/shop">Shop</router-link>
           </div>
@@ -21,13 +21,14 @@
         </div>
         <div class="header-links">
           <router-link class="header-link" to="/">Demo Reel</router-link>
-          <router-link class="header-link" to="/gallery">Portfolio</router-link>
+          <router-link class="header-link" to="/portfolio">Portfolio</router-link>
           <router-link class="header-link" to="/contact">Contact</router-link>
           <router-link class="header-link" to="/shop">Shop</router-link>
         </div>
       </div>
     </div>
     <div v-if="user" class="user-account">
+    <a class="user-info"><img src="@/assets/icons/cart.svg" /></a>
       <p class="user-info">{{ user.firstName }}  {{ user.lastName }}</p>
       <a class="user-info" @click="logout"><img src="@/assets/icons/logout_sphere.svg" /></a>
     </div>
@@ -132,8 +133,8 @@ export default {
 }
 
 .footer {
-  margin-top: 75px;
-  margin-bottom: 30px;
+  margin-top: 30px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;

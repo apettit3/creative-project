@@ -4,7 +4,7 @@ import Embed from 'v-video-embed'
 
 import Home from '../views/Home.vue'
 import Shop from "../views/Shop.vue"
-import Gallery from "../views/Gallery.vue"
+import Portfolio from "../views/Portfolio.vue"
 import Contact from "../views/Contact.vue"
 
 Vue.use(VueRouter);
@@ -22,9 +22,9 @@ const routes = [
     component: Shop
   },
   {
-    path: "/gallery",
-    name: "Gallery",
-    component: Gallery
+    path: "/portfolio",
+    name: "Portfolio",
+    component: Portfolio
   },
   {
     path: "/contact",

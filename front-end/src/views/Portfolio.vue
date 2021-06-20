@@ -7,7 +7,7 @@
 <script>
 import portfolioList from "../components/portfolioList.vue"
 export default {
-  name: 'Shop',
+  name: 'Portfolio',
   components: {
     portfolioList
   },

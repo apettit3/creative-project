@@ -1,20 +1,24 @@
 <template>
 <div class="shop">
-  <ShopItems v-if="user" />
+  <shopList v-if="user" :shopPieces="shopPieces" />
   <Login v-else />
 </div>
 </template>
 
 <script>
-import ShopItems from "@/components/ShopItems.vue";
+import shopList from "../components/shopList.vue";
 import Login from "@/components/Login.vue";
 import axios from "axios";
 
 export default {
-  name: "shop",
+  name: 'Shop',
   components: {
-    ShopItems,
+    shopList,
     Login,
+  },
+  data() {
+    return {
+    }
   },
   async created() {
     try {
@@ -25,6 +29,9 @@ export default {
     }
   },
   computed: {
+    shopPieces() {
+      return this.$root.$data.shopPieces;
+    },
     user() {
       return this.$root.$data.user;
     }

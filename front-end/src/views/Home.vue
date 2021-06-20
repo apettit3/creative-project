@@ -5,7 +5,7 @@
     <h3>andrewp2010@gmail.com | @androodlesPettit</h3>
     <div class="link-container">
       <div class="personal-links">
-        <router-link to="/gallery" id="gallery-link">
+        <router-link to="/portfolio" id="gallery-link">
           <img class="image-link" src="@/assets/portfolio/strawberrySingle.png" />
           <h1 class="centered">PORTFOLIO</h1>
         </router-link>
@@ -59,9 +59,10 @@ export default {
   justify-content: space-between;
 }
 
-#shop-link {
-  height: 650px;
+#shop-link img {
+  height: 250px;
   width: 100%;
+  object-fit: cover;
 }
 
 .image-link {

@@ -23,14 +23,13 @@
 
 .personal-container {
   width: 100%;
-  height: 400px;
   margin-top: 60px;
   display: flex;
   justify-content: space-between;
 }
 
 .portrait {
-  max-height: 100%;
+  max-height: 400px;
   width: auto;
   margin-right: 50px;
 }
