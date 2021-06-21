@@ -53,7 +53,7 @@ const User = mongoose.model('User', userSchema);
 const validUser = async (req, res, next) => {
   if (!req.session.userID)
     return res.status(403).send({
-      message: "no user logged in"
+      message: "not logged in"
     });
   try {
     const user = await User.findOne({
@@ -61,18 +61,19 @@ const validUser = async (req, res, next) => {
     });
     if (!user) {
       return res.status(403).send({
-        message: "no user logged in"
+        message: "not logged in"
       });
     }
     req.user = user;
   } catch (error) {
     return res.status(403).send({
-      message: "no user logged in"
+      message: "not logged in"
     });
   }
   next();
 };
 
+//////////////////// API ENDPOINTS ////////////////////
 // create new user
 router.post('/', async (req, res) => {
   if (!req.body.firstName || !req.body.lastName || !req.body.email || !req.body.password)
@@ -81,15 +82,13 @@ router.post('/', async (req, res) => {
     });
 
   try {
-    //  check to see if email already in use
     const existingUser = await User.findOne({
       email: req.body.email
     });
     if (existingUser)
       return res.status(403).send({
-        message: "email already in use"
+        message: "email already exists"
       });
-    // create user and save
     const user = new User({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -97,10 +96,7 @@ router.post('/', async (req, res) => {
       password: req.body.password
     });
     await user.save();
-    // set user session info
     req.session.userID = user._id;
-
-    // send back 200 and new user
     return res.send({
       user: user
     });
@@ -114,34 +110,27 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   if (!req.body.email || !req.body.password)
     return res.sendStatus(400);
-
   try {
     const user = await User.findOne({
       email: req.body.email
     });
-    // user does not exist
     if (!user)
       return res.status(403).send({
         message: "email or password is wrong"
       });
-
     if (!await user.comparePassword(req.body.password))
       return res.status(403).send({
         message: "email or password is wrong"
       });
-    // set user session info
     req.session.userID = user._id;
-
     return res.send({
       user: user
     });
-
   } catch (error) {
     console.log(error);
     return res.sendStatus(500);
   }
 });
-
 
 // get logged in user
 router.get('/', validUser, async (req, res) => {
